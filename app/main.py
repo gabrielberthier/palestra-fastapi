@@ -1,17 +1,11 @@
 from typing import Union
-
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
+from app.dependencies import get_db
 from app.domain import schemas
 from app.infra import crud
-from app.infra.db.get_db import get_db
-from app.infra.db.base import engine
-from app.infra.models import Base
-
 
 app = FastAPI()
-
-Base.metadata.create_all(bind=engine)
 
 
 @app.get("/")
@@ -39,12 +33,14 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="User not found")
     return db_user
 
+
 @app.post("/players/", response_model=schemas.Player)
 def create_player(player_object: schemas.PlayerCreate, db: Session = Depends(get_db)):
     db_user = crud.get_user(db, user_id=player_object.user_id)
     if not db_user:
         raise HTTPException(status_code=400, detail="User not registered")
     return crud.create_user_player(db=db, player=player_object)
+
 
 @app.get("/players/{user_id}", response_model=schemas.Player)
 def get_players(user_id: int, db: Session = Depends(get_db)):

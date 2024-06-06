@@ -31,7 +31,7 @@ E então melhoramos o código
 
 ## Parte 3
 
-Queremos agora cirar uma base única para que o nosso time possa trabalhar
+Queremos agora crar uma base única para que o nosso time possa trabalhar
 
 Como?
 
