@@ -22,3 +22,5 @@
 `uvicorn sql_app.main:app --reload` ou `fastapi dev main.py`
 
 - E vamos construir alguns modelos :D
+
+Modelos SQL

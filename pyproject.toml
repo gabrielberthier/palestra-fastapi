@@ -12,6 +12,9 @@ fastapi = "^0.111.0"
 sqlalchemy = "^2.0.30"
 
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.2"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
