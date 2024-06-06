@@ -21,6 +21,33 @@
 - Rode o projeto
 `uvicorn sql_app.main:app --reload` ou `fastapi dev main.py`
 
-- E vamos construir alguns modelos :D
+E vamos construir alguma coisa :D
 
-Modelos SQL
+Criamos o básico para comunicar com o BD
+Criamos Modelos SQL
+Criamos Schemas (Objetos de input e output)
+
+## Parte 3
+
+Queremos agora cirar uma base única para que o nosso time possa trabalhar
+
+Como?
+
+- Docker
+- Git
+- Docker Compose
+
+### Criando a imagem docker
+
+Criamos um arquivo Dockerfile, colocando passo a passo de como queremos nosso container
+
+- `docker build -t myimage .`
+
+
+## Referências
+
+### FastAPI
+
+[FastAPI Full Stack Template](https://github.com/tiangolo/full-stack-fastapi-template/tree/master)
+[Full Tutorial - FastAPI](https://www.youtube.com/watch?v=XnYYwcOfcn8&list=PLqAmigZvYxIL9dnYeZEhMoHcoP4zop8-p)
+[FastAPI com Docker](https://fastapi.tiangolo.com/deployment/docker)
