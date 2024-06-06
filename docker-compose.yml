@@ -36,6 +36,9 @@ services:
       - POSTGRES_USER=${POSTGRES_USER?Variable not set}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD?Variable not set}
     platform: linux/amd64 # Patch for M1 Mac
+    build: .
+    ports:
+      - "8080:80"
 
 volumes:
   app-db-data:

@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM python:3.11-bullseye
 
 WORKDIR /app/
 
@@ -18,5 +18,7 @@ RUN bash -c "if [ $INSTALL_DEV == 'true' ] ; then poetry install --no-root ; els
 ENV PYTHONPATH=/app
 
 COPY ./app /app/app
+
+EXPOSE 80
 
 CMD ["fastapi", "run", "app/main.py", "--port", "80"]
