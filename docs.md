@@ -27,6 +27,8 @@ Criamos o básico para comunicar com o BD
 Criamos Modelos SQL
 Criamos Schemas (Objetos de input e output)
 
+E então melhoramos o código
+
 ## Parte 3
 
 Queremos agora cirar uma base única para que o nosso time possa trabalhar
@@ -51,3 +53,15 @@ Criamos um arquivo Dockerfile, colocando passo a passo de como queremos nosso co
 [FastAPI Full Stack Template](https://github.com/tiangolo/full-stack-fastapi-template/tree/master)
 [Full Tutorial - FastAPI](https://www.youtube.com/watch?v=XnYYwcOfcn8&list=PLqAmigZvYxIL9dnYeZEhMoHcoP4zop8-p)
 [FastAPI com Docker](https://fastapi.tiangolo.com/deployment/docker)
+
+### Docker
+[Get Started - Docker](https://docs.docker.com/get-started/)
+[Cheatsheet Docker](https://docs.docker.com/get-started/docker_cheatsheet.pdf)
+
+### Docker Compose 
+[Cheatsheet Docker Compose](https://devhints.io/docker-compose)
+[Docker Compose - QuickStart](https://docs.docker.com/compose/gettingstarted/)
+
+### Git
+[OH MY GIT](https://ohmygit.org/)
+[Aprenda o básico de Git em menos de 10 minutos](https://www.freecodecamp.org/portuguese/news/aprenda-o-basico-de-git-em-menos-de-10-minutos/)
