@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, UniqueConstraint
 from sqlalchemy.orm import relationship
 
 from app.infra.db.base import Base
@@ -13,7 +13,7 @@ class User(Base):
     is_active = Column(Boolean, default=True)
 
     items = relationship("Item", back_populates="owner")
-    player = relationship("Player", back_populates="user", uselist=False)
+    player = relationship("Player", back_populates="user", uselist=False, cascade="all, delete")
 
 
 class Player(Base):
@@ -21,9 +21,11 @@ class Player(Base):
     id = Column(Integer, primary_key=True)
     name= Column(String)
     level = Column(Integer)
-    user_id = Column(Integer, ForeignKey("users.id"))
+    user_id = Column(Integer, ForeignKey("users.id"), unique=True)
 
-    user = relationship("User", back_populates="player", single_parent=True)
+    user = relationship("User", back_populates="player", single_parent=True, uselist=False)
+
+    __table_args__ = (UniqueConstraint("user_id"),)
 
 class Item(Base):
     __tablename__ = "items"

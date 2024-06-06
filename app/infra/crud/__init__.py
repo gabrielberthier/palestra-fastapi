@@ -7,6 +7,9 @@ from app.domain import schemas
 def get_user(db: Session, user_id: int):
     return db.query(user_model.User).filter(user_model.User.id == user_id).first()
 
+def get_player(db: Session, user_id: int):
+    return db.query(user_model.Player).filter(user_model.Player.user_id == user_id).join(user_model.User).first()
+
 
 def get_user_by_email(db: Session, email: str):
     return db.query(user_model.User).filter(user_model.User.email == email).first()
@@ -30,8 +33,15 @@ def get_items(db: Session, skip: int = 0, limit: int = 100):
 
 
 def create_user_item(db: Session, item: schemas.ItemCreate, user_id: int):
-    db_item = user_model.Item(**item.dict(), owner_id=user_id)
+    db_item = user_model.Item(**item.model_dump(), owner_id=user_id)
     db.add(db_item)
     db.commit()
     db.refresh(db_item)
     return db_item
+
+def create_user_player(db: Session, player: schemas.PlayerCreate):
+    db_player = user_model.Player(**player.model_dump())
+    db.add(db_player)
+    db.commit()
+    db.refresh(db_player)
+    return db_player

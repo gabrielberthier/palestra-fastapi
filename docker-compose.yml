@@ -23,6 +23,8 @@ services:
   backend:
     image: '${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}'
     restart: always
+    volumes:
+      - .:/app
     depends_on:
       - db
     env_file:
@@ -39,6 +41,8 @@ services:
     build: .
     ports:
       - "8080:80"
+      - "8081:8000"
+    command: uvicorn --host  0.0.0.0 --reload --reload-dir /app app.main:app
 
 volumes:
   app-db-data:

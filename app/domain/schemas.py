@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class ItemBase(BaseModel):
@@ -33,3 +33,18 @@ class User(UserBase):
 
     class Config:
         from_attributes = True
+
+
+class PlayerCreate(BaseModel):
+    name: str
+    level: int = Field(..., gt=0)
+    user_id: int = Field(..., gt=0)
+
+
+class Player(BaseModel):
+    id: int
+    name: str
+    level: int = Field(..., gt=0)
+    user_id: int = Field(..., gt=0)  
+
+    user: User
