@@ -45,6 +45,10 @@ Criamos um arquivo Dockerfile, colocando passo a passo de como queremos nosso co
 
 - `docker build -t myimage .`
 
+### Subindo outros services com Docker Compose
+
+- `docker compose up`
+
 
 ## Referências
 
